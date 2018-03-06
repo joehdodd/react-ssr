@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+
+# public
+/public
+
+# server
+server.js
+
+# other
+.DS_Store
