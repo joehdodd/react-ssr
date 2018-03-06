@@ -10,13 +10,9 @@ class CommentsContainer extends Component {
   }
   getComments = e => {
     e.preventDefault();
-    console.log('fire?');
     return fetch(`https://jsonplaceholder.typicode.com/comments`)
       .then(response => response.json())
-      .then(json => {
-        console.log(json);
-        this.setState({ comments: json });
-      });
+      .then(json => this.setState({ comments: json }));
   };
   render() {
     return (
