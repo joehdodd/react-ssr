@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Comments from '../presentational/Comments';
 
 class CommentsContainer extends Component {
@@ -15,12 +15,7 @@ class CommentsContainer extends Component {
       .then(json => this.setState({ comments: json }));
   };
   render() {
-    return (
-      <span>
-        <button onClick={e => this.getComments(e)}>Get Comments</button>
-        <Comments comments={this.state.comments} />
-      </span>
-    );
+    return <Comments getComments={this.getComments} comments={this.state.comments} />;
   }
 }
 

@@ -5,7 +5,7 @@ const Html = ({ body }) => `
       <title>React SSR</title>
       <script src='/bundle.js' defer></script>
     </head>
-    <body style="margin:0">
+    <body style="margin: 0; background-color: #f9f9f9">
       <div id="root">${body}</div>
     </body>
   </html>
