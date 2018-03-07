@@ -19,7 +19,7 @@ var browserConfig = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: 'babel-loader'
       }
     ]
   }
@@ -28,25 +28,26 @@ var browserConfig = {
 var serverConfig = {
   entry: './src/server/index.js',
   target: 'node',
-  externals: [nodeExternals()],
+  externals: nodeExternals(),
   output: {
     path: __dirname,
     filename: 'server.js',
     publicPath: '/'
   },
-  module: {
-    rules: [
-      {
-        test: /\.(js)$/,
-        use: 'babel-loader'
-      }
-    ]
-  },
   plugins: [
     new webpack.DefinePlugin({
       __isBrowser__: 'false'
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'
+      }
+    ]
+  }
 };
 
 module.exports = [browserConfig, serverConfig];

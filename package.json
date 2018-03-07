@@ -5,7 +5,8 @@
   "author": "Joe Dodd",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w --mode development & nodemon server.js"
+    "start": "webpack -w --mode development & nodemon server.js",
+    "build": "webpack --mode production"
   },
   "babel": {
     "presets": ["env", "react", "stage-2"],
