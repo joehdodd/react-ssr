@@ -24,17 +24,23 @@ const ReposList = props => {
     gridGap: `2.5px`,
     alignItems: `center`,
     borderBottom: `1px solid #d1d1d1`,
+    borderRadius: `4px`,
+    padding: `10px`
   };
   return (
     <div style={containerStyle}>
       {!!props.repos ? (
         <div style={gridStyle}>
-          {props.repos.map(repo => (
-            <div style={gridItemStyle} key={repo.id}>
-              <span>{repo.name}</span>
-              <span>{repo.language}</span>
-            </div>
-          ))}
+          {props.repos.map(
+            ({ id, name, language, stargazers_count, html_url }) => (
+              <div style={gridItemStyle} key={id}>
+                <span>
+                  <a href={html_url}>{name}</a>
+                </span>
+                <span>{stargazers_count}</span>
+              </div>
+            )
+          )}
         </div>
       ) : (
         <span>Loading repos!</span>
