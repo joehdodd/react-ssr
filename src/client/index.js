@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import App from '../shared/App';
 
-ReactDOM.hydrate(<App />, document.getElementById('root'));
+ReactDOM.hydrate(
+  <App state={window.__INITIAL_STATE__} />,
+  document.getElementById('root')
+);
