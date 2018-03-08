@@ -6,7 +6,7 @@ import { appStore } from './redux/configureStore';
 
 ReactDOM.hydrate(
   <Provider store={appStore}>
-    <App state={window.__INITIAL_STATE__} />
+    <App />
   </Provider>,
   document.getElementById('root')
 );

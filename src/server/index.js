@@ -6,19 +6,15 @@ import { Provider } from 'react-redux';
 import App from '../shared/App';
 import Html from '../client/Html';
 import serialize from 'serialize-javascript';
-import { fetchPopularRepos } from '../shared/api';
+// import { fetchPopularRepos } from '../shared/api';
 import { appStore } from '../client/redux/configureStore';
-import { fetchRepos } from '../client/redux/actions';
+// import { fetchRepos } from '../client/redux/actions';
 
 const app = express();
-const initState = appStore.dispatch(fetchRepos());
 app.use(cors());
 app.use(express.static('public'));
-if (typeof(window) == 'undefined'){
-    global.window = new Object();
-}
 app.get('*', (req, res) => {
-    const state = serialize(initState);
+    const state = serialize(appStore.getState());
     const body = renderToString(
       <Provider store={appStore}>
         <App />
