@@ -1,6 +1,8 @@
 import { FETCH_REPOS, FETCHING, GET_DATA, RES_SUCCESS } from './actions';
 
-export function rootReducer(state = {}, action) {
+export function rootReducer(state = {
+  repos: []
+}, action) {
   switch (action.type) {
     case FETCHING:
       return { ...state, fetching: action.fetching }

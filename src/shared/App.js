@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReposContainer from '../client/components/container/ReposContainer';
+import { fetchRepos } from '../client/redux/actions';
 
 // const App = props => {
 //   return <ReposContainer repos={props.state} />;
 // };
 class App extends Component {
-  componentDidMount() {
-    // fetch repos
+  componentWillMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchRepos());
   }
   render() {
-    return <ReposContainer repos={this.props.state} />;
+    const { repos } = this.props;
+    console.log(repos);
+    return <ReposContainer repos={this.props.repos} />;
   }
 }
 
 function mapStateToProps(state) {
   const { rootReducer } = state;
-  console.log(state);
+  const { fetching, repos } = rootReducer;
   return {
-    rootReducer
+    fetching,
+    repos
   }
 }
 
