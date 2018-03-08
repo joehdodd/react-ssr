@@ -4,16 +4,16 @@ import { createLogger } from 'redux-logger';
 import { rootReducer } from './reducers';
 import thunkMiddleware from 'redux-thunk';
 
-// const preloadedState = typeof window === undefined ?
 // eslint-disable-next-line
 const loggerMiddleware = createLogger();
-// const preloadedState = global.__INITIAL_STATE__;
-// delete global.__INITIAL_STATE__;
+const preloadedState = global.__INITIAL_STATE__;
+delete global.__INITIAL_STATE__;
 
 export const appStore = createStore(
   combineReducers({
     rootReducer
   }),
+  preloadedState,
   applyMiddleware(
     thunkMiddleware,
     loggerMiddleware
