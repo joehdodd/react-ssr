@@ -16,6 +16,6 @@ export const appStore = createStore(
   preloadedState,
   applyMiddleware(
     thunkMiddleware,
-    loggerMiddleware
+    // loggerMiddleware
   )
 );
