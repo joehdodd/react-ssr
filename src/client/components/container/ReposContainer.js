@@ -15,7 +15,15 @@ class ReposContainer extends Component {
   //     })
   // }
   render() {
-    return <ReposList repos={this.props.repos} />;
+    return (
+      <Fragment>
+        {this.props.fetching ? (
+          <span>Fetching repos!</span>
+        ) : (
+          <ReposList fetching={this.props.fetching} repos={this.props.repos} />
+        )}
+      </Fragment>
+    );
   }
 }
 

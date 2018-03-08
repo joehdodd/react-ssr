@@ -9,8 +9,8 @@ class App extends Component {
     dispatch(fetchRepos());
   }
   render() {
-    const { repos } = this.props;
-    return <ReposContainer repos={this.props.repos} />;
+    const { fetching, repos } = this.props;
+    return <ReposContainer fetching={fetching} repos={repos} />;
   }
 }
 
