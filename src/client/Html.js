@@ -6,7 +6,7 @@ const Html = ({ state, body }) => `
       <script src='/bundle.js' defer></script>
       <script>window.__INITIAL_STATE__ = ${state}</script>
     </head>
-    <body style="margin: 0; background-color: #f9f9f9">
+    <body style="margin: 0; background-color: #e9ebee">
       <div id="root">${body}</div>
     </body>
   </html>
