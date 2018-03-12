@@ -9,7 +9,10 @@ const ReposList = props => {
     backgroundColor: `#fff`,
     padding: `4px 24px`,
     borderRadius: `4px`,
-    boxShadow: `0px 2px 2px 0px rgba(0, 0, 0, 0.5)`
+    boxShadow: `0px 2px 2px 0px rgba(0, 0, 0, 0.5)`,
+    display: `grid`,
+    alignItems: `center`,
+    justifyItems: `center`
   };
   const gridStyle = {
     display: `grid`,
@@ -27,9 +30,12 @@ const ReposList = props => {
     borderRadius: `4px`,
     padding: `10px`
   };
+  const fetchingStyle = {
+    fontSize: `48px`
+  }
   return (
     <div style={containerStyle}>
-      {!!props.repos ? (
+      {!props.fetching && !!props.repos.length ? (
         <div style={gridStyle}>
           {props.repos.map(
             ({ id, name, language, stargazers_count, html_url }) => (
@@ -43,7 +49,7 @@ const ReposList = props => {
           )}
         </div>
       ) : (
-        <span>Loading repos!</span>
+        <span style={fetchingStyle}>Fetching repos!</span>
       )}
     </div>
   );

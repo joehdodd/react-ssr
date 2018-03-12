@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ReposContainer from '../client/components/container/ReposContainer';
+import ReposList from '../client/components/presentational/ReposList';
 import { fetchRepos } from '../client/redux/actions';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
   }
   render() {
     const { fetching, repos } = this.props;
-    return <ReposContainer fetching={fetching} repos={repos} />;
+    return <ReposList fetching={fetching} repos={repos} />;
   }
 }
 
