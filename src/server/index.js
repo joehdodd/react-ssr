@@ -3,6 +3,7 @@ import cors from 'cors';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from '../shared/App';
 import Html from '../client/Html';
 import serialize from 'serialize-javascript';
@@ -15,7 +16,9 @@ app.get('*', (req, res) => {
     const state = serialize(appStore.getState());
     const body = renderToString(
       <Provider store={appStore}>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </Provider>
     );
     res.send(
